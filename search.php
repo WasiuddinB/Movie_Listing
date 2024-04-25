@@ -61,6 +61,23 @@
         .budget {
             color: #666;
         }
+        .container1 {
+            margin: 50px auto;
+            text-align: center;
+        }
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
@@ -92,5 +109,9 @@
         }
         ?>
     </div>
+    <div class="container1">
+        <a href="home.php" class="btn">Go Back to Home Page</a>
+    </div>
+    
 </body>
 </html>

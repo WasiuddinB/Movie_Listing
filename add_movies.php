@@ -91,6 +91,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         input[type="submit"]:hover {
             background-color: #45a049;
         }
+        .container {
+            margin: 50px auto;
+            text-align: center;
+        }
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
@@ -116,6 +133,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <input type="submit" value="Add Movie">
     </form>
+    <div class="container">
+        <a href="home.php" class="btn">Go Back to Home Page</a>
+    </div>
 </body>
 </html>
 
