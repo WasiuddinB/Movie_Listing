@@ -15,6 +15,7 @@ $result = $conn->query($select_movie);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/fontawesome.min.css" integrity="sha384-BY+fdrpOd3gfeRvTSMT+VUZmA728cfF9Z2G42xpaRkUGu2i3DyzpTURDo5A6CaLK" crossorigin="anonymous">
     <title>Movies</title>
     <style>
         body {
@@ -97,6 +98,34 @@ $result = $conn->query($select_movie);
             background-color: #0b7dda;
         }
 
+        .favorite-btn {
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .favorite-btn:hover {
+            color: black;
+        }
+
+        .remove-favorite-btn{
+            background-color: #f44336;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .remove-favorite-btn:hover{
+            color: black;
+        }
+
 
         table {
             width: 80%;
@@ -139,7 +168,7 @@ $result = $conn->query($select_movie);
         </div>
 
         <form action="add_movies.php">
-            <button class="add-movie-btn">Add Movie</button>
+            <button class="add-movie-btn">Add New Movie</button>
         </form>
 
         <form method="get" action="search.php">
@@ -158,11 +187,13 @@ $result = $conn->query($select_movie);
         <thead>
             <tr>
                 <th>Movie Name</th>
-                <th>Year</th>
+                <th>Release Year</th>
                 <th>Actor</th>
                 <th>Actress</th>
                 <th>Poster Image</th>
                 <th>Budget</th>
+                <th>Favourite-Add</th>
+                <th>Favourite-Remove</th>
             </tr>
         </thead>
         <tbody>
@@ -178,14 +209,14 @@ $result = $conn->query($select_movie);
                 <td>
                     <form method="post" action="add_fav.php">
                         <input type="hidden" name="movie_id" value="<?php echo $row['id']; ?>">
-                        <button type="submit">Add to Favorites</button>
+                        <button type="submit" class="favorite-btn">ADD</button>
                     </form>
                 </td>
 
                 <td>
                     <form method="post" action="remove_fav.php">
                         <input type="hidden" name="movie_id" value="<?php echo $row['id']; ?>">
-                        <button type="submit">Remove from Favorites</button>
+                        <button type="submit" class="remove-favorite-btn">REMOVE</button>
                     </form>
                 </td>
             </tr>
