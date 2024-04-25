@@ -29,13 +29,7 @@ $result = $conn->query($select_movie);
             margin-top: 20px;
             color: #333;
         }
-
-        .welcome {
-            text-align: center;
-            margin-bottom: 20px;
-            color: #333;
-        }
-
+        
         .container {
             display: flex;
             justify-content: space-between;
@@ -43,6 +37,22 @@ $result = $conn->query($select_movie);
             padding: 10px;
             background-color: #fff;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .welcome {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .welcome-text {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .username {
+            font-size: 18px;
+            color: #666;
         }
 
         .logout-btn {
@@ -72,6 +82,21 @@ $result = $conn->query($select_movie);
         .add-movie-btn:hover {
             background-color: #45a049;
         }
+
+        .search-btn {
+            background-color: #2196F3;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .search-btn:hover {
+            background-color: #0b7dda;
+        }
+
 
         table {
             width: 80%;
@@ -104,17 +129,30 @@ $result = $conn->query($select_movie);
     </style>
 </head>
 <body>
-    <h1>Home Page</h1>
+    <h1>Movies Page</h1>
+
     <div class="container">
+
         <div class="welcome">
-            <b>WELCOME<br><?php echo $_SESSION["email"]; ?></b>
+            <b class="welcome-text">WELCOME</b><br>
+            <span class="username"><?php echo $_SESSION["email"]; ?></span>
         </div>
+
         <form action="add_movies.php">
             <button class="add-movie-btn">Add Movie</button>
         </form>
+
+        <form method="get" action="search.php">
+            <label for="search_query">Search:</label>
+            <input type="text" id="search_query" name="query" required>
+            <button type="submit" class="search-btn">Search</button>
+        </form>
+
+
         <form action="logout.php">
             <button class="logout-btn">Logout</button>
         </form>
+
     </div>
     <table border="1" style="width:100%">
         <thead>
