@@ -24,7 +24,7 @@ $getrows1=$conn->query($notvalidmail);
 $getrows2=$conn->query($notvalidpassword);
  if ($getrows->num_rows>0) {
   $_SESSION['email']=$email;
-  header("location:movie.php");
+  header("location:home.php");
    }
   elseif($getrows1->num_rows>0 && $conn->query($notvalidmail)){
    $err =  "<br><br>Your Email is Wrong </br></br>";
