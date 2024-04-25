@@ -59,6 +59,20 @@ $result = $conn->query($select_movie);
             background-color: #d32f2f;
         }
 
+        .add-movie-btn {
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .add-movie-btn:hover {
+            background-color: #45a049;
+        }
+
         table {
             width: 80%;
             margin: 20px auto;
@@ -95,11 +109,11 @@ $result = $conn->query($select_movie);
         <div class="welcome">
             <b>WELCOME<br><?php echo $_SESSION["email"]; ?></b>
         </div>
-        <form action="logout.php">
-            <button class="logout-btn">Logout</button>
-        </form>
         <form action="add_movies.php">
             <button class="add-movie-btn">Add Movie</button>
+        </form>
+        <form action="logout.php">
+            <button class="logout-btn">Logout</button>
         </form>
     </div>
     <table border="1" style="width:100%">
@@ -109,7 +123,7 @@ $result = $conn->query($select_movie);
                 <th>Year</th>
                 <th>Actor</th>
                 <th>Actress</th>
-                <th>Banner Image</th>
+                <th>Poster Image</th>
                 <th>Budget</th>
             </tr>
         </thead>
