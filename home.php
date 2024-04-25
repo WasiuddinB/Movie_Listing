@@ -174,7 +174,23 @@ $result = $conn->query($select_movie);
                 <td><?php echo $row['actress']; ?></td>
                 <td><img src="<?php echo $row['banner_image']; ?>" alt="Banner"></td>
                 <td><?php echo $row['budget']; ?></td>
+                
+                <td>
+                    <form method="post" action="add_fav.php">
+                        <input type="hidden" name="movie_id" value="<?php echo $row['id']; ?>">
+                        <button type="submit">Add to Favorites</button>
+                    </form>
+                </td>
+
+                <td>
+                    <form method="post" action="remove_fav.php">
+                        <input type="hidden" name="movie_id" value="<?php echo $row['id']; ?>">
+                        <button type="submit">Remove from Favorites</button>
+                    </form>
+                </td>
             </tr>
+            
+
             <?php endwhile; ?>
         </tbody>
     </table>
